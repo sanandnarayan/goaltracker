@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Just Do it  <small>Track and do</small></h1>
+</div>
+
+<div id="topline">
+  <input id="newtodo" placeholder="Add task to goal" autofocus="">
+</div>
+
+<div id="goal_box">
+  <div class="goal" data-row="1" data-col="2"  data-sizex="1" data-sizey="1">
+    <h3>devBrother</h3>
+    <ul class="tasks">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+  </div>
+  <div class="goal" data-row="1" data-col="1"  data-sizex="1" data-sizey="1">
+    <h3>quickburp</h3>
+    <ul class="tasks">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+  </div>
+  <div class="goal" data-row="1" data-col="3"  data-sizex="1" data-sizey="1">
+    <h3>investing</h3>
+    <ul class="tasks">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+  </div>
+</div>
+<% content_for :pagejs do %>
+<%= javascript_include_tag "home/index" %>
+<% end %>
