@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_self
+//= require lib/jquery-ui-1.9.1.custom.js
+//= require lib/jquery.masonry.js
 //= require bootstrap/bootstrap.js
-//= require lib/jquery.gridster.min.js

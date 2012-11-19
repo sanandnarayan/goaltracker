@@ -12,8 +12,17 @@
   font-smoothing: antialiased;
 }
 .goal {
-  background:red;
+  width:150px;
+  display:block;
+  background: #555;
+  margin: 5px;
 }
 #goal_box {
   background:#eee;
 }
+
+
+.card-sortable-placeholder {
+    background: blue !important;
+}
+.dragging { opacity: .8; background: #ff6903 !important; }
