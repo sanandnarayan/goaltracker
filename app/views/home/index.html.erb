@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
 <div class="page-header">
   <h1>Just Do it  <small>Track and do</small></h1>
 </div>
