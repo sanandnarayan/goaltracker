@@ -1,5 +1,5 @@
 #newtodo {
-  width: 300px;
+  width:100%;
   font-size: 24px;
   font-family: inherit;
   line-height: 1.4em;
@@ -12,17 +12,51 @@
   font-smoothing: antialiased;
 }
 .goal {
-  width:150px;
+  min-width:250px;
   display:block;
-  background: #555;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
   margin: 5px;
+  h3 {
+    text-align:center;
+    font-weight:bold;
+    cursor:move;
+  }
 }
-#goal_box {
-  background:#eee;
+.tasks {
+  li {
+    cursor:move;
+    border-bottom:1px dotted #eee; 
+    list-style:none;
+    button {
+      display:none;
+      float:right;
+    }
+  }
+  li:hover {
+    background:#eee;
+    button {
+      display:inline;
+    }
+  }
 }
 
 
 .card-sortable-placeholder {
-    background: blue !important;
+    background: #aaa !important;
 }
 .dragging { opacity: .8; background: #ff6903 !important; }
+
+#topline {
+  margin:10px 0;
+  padding:10px 0;
+}
+.page-header {
+  margin:0;
+  padding:0;
+}
+
+.timers {
+  float:right;
+}
+

@@ -2,30 +2,64 @@
   <h1>Just Do it  <small>Track and do</small></h1>
 </div>
 
-<div id="topline">
-  <input id="newtodo" placeholder="Add task to goal" autofocus="">
+<div id="topline" class="row-fluid">
+  <div class="span4">
+    <input id="newtodo" placeholder="Add task to goal" autofocus="">
+  </div>
+  <div id="timers" class="span6 offset2">
+    <span class="span4">
+      <span id="timer"></span>
+      <button id="stop" class="btn btn-mini btn-danger">stop</button>
+      
+    </span>
+    <span  class="span4">
+      <span id="tomato_timer"></span>
+      <button id="tomato_squash" class="btn btn-mini btn-danger">Squash</button>
+      <div class="progress">
+        <div class="bar" id="tomato_bar" style="width: 60%;"></div>
+      </div>
+    </span>
+    <span id="tomatoes" class="span4">2 tomatoes</span>
+  </div>
 </div>
 
 <div id="goal_box">
   <div class="goal">
-    <h3>devBrother</h3>
+    <h3><span>devBrother</span></h3>
     <ul class="tasks">
+      <li>
+        <span>One</span>
+        <button class="btn btn-success btn-mini">Start</button>
+      </li>
+      <li>
+        <span>Two</span>
+        <button class="btn btn-success btn-mini">Start</button>
+      </li>
+      <li>
+        <span>Three</span>
+        <button class="btn btn-success btn-mini">Start</button>
+      </li>
+    </ul>
+  </div>
+  <div class="goal">
+    <h3><span>quickburp</span></h3>
+    <ul class="tasks">
+      <li>
+        <span>One</span>
+        <button class="btn btn-success btn-mini">Start</button>
+      </li>
       <li>One</li>
       <li>Two</li>
       <li>Three</li>
     </ul>
   </div>
   <div class="goal">
-    <h3>quickburp</h3>
+    <h3><span>investing</span></h3>
     <ul class="tasks">
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-    </ul>
-  </div>
-  <div class="goal">
-    <h3>investing</h3>
-    <ul class="tasks">
+      <li>
+        <span>One</span>
+        <button class="btn btn-success btn-mini">Start</button>
+      </li>
       <li>One</li>
       <li>Two</li>
       <li>Three</li>
