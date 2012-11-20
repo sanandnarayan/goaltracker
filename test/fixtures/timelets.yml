@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from: 2012-11-20 13:34:26
+  to: 2012-11-20 13:34:26
+  duration: 1
+  task: 
+
+two:
+  from: 2012-11-20 13:34:26
+  to: 2012-11-20 13:34:26
+  duration: 1
+  task: 
