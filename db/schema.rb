@@ -11,7 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120072708) do
+ActiveRecord::Schema.define(:version => 20121120104639) do
+
+  create_table "goals", :force => true do |t|
+    t.string   "name"
+    t.boolean  "archived"
+    t.integer  "position"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "name"
+    t.boolean  "done"
+    t.integer  "position"
+    t.boolean  "archived"
+    t.integer  "goal_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "notes"
+  end
+
+  create_table "timelets", :force => true do |t|
+    t.datetime "from"
+    t.datetime "to"
+    t.integer  "duration"
+    t.integer  "task_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "timelets", ["task_id"], :name => "index_timelets_on_task_id"
+
+  create_table "tomatoes", :force => true do |t|
+    t.datetime "from"
+    t.datetime "to"
+    t.integer  "duration"
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tomatoes", ["user_id"], :name => "index_tomatoes_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
