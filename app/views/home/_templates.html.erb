@@ -1,0 +1,17 @@
+<script type="text/template" id="goal_template">
+  <h3>
+    <span>{{= name }}</span>
+    <button class="destroy"></button>
+  </h3>
+  <ul class="tasks">
+  </ul>
+</script>
+<script type="text/template" id="task_template">
+    <div class="view">
+      <input class="toggle" type="checkbox">
+      <label>{{= name }}</label>
+      <button class="destroy"></button>
+      <button class="btn btn-success btn-mini">Start</button>
+    </div>
+    <input class="edit">
+</script>

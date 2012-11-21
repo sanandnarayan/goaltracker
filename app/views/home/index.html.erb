@@ -10,73 +10,38 @@
     <input id="newtodo" placeholder="Add task to goal" autofocus="">
   </div>
   <div id="timers" class="span6 offset2">
-    <span class="span4">
+    <span class="span4" id="timelet">
       <span id="timer"></span>
       <button id="stop" class="btn btn-mini btn-danger">stop</button>
       
     </span>
-    <span  class="span4">
+    <span  class="span4" id="tomato">
       <span id="tomato_timer"></span>
       <button id="tomato_squash" class="btn btn-mini btn-danger">Squash</button>
       <div class="progress">
         <div class="bar" id="tomato_bar" style="width: 60%;"></div>
       </div>
     </span>
-    <span id="tomatoes" class="span4">2 tomatoes</span>
+    <span id="user_tomatoes" class="span4">2 tomatoes</span>
   </div>
 </div>
 
 <div id="goal_box">
-  <div class="goal">
-    <h3>
-      <span>devBrother</span>
-      <button class="destroy"></button>
-    </h3>
-    <ul class="tasks">
-      <li>
-        <div class="view">
-          <input class="toggle" type="checkbox">
-          <label>fasd</label>
-          <button class="destroy"></button>
-          <button class="btn btn-success btn-mini">Start</button>
-        </div>
-        <input class="edit">
-      </li>
-      <li>
-        <span>Two</span>
-        <button class="btn btn-success btn-mini">Start</button>
-      </li>
-      <li>
-        <span>Three</span>
-        <button class="btn btn-success btn-mini">Start</button>
-      </li>
-    </ul>
-  </div>
-  <div class="goal">
-    <h3><span>quickburp</span></h3>
-    <ul class="tasks">
-      <li>
-        <span>One</span>
-        <button class="btn btn-success btn-mini">Start</button>
-      </li>
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-    </ul>
-  </div>
-  <div class="goal">
-    <h3><span>investing</span></h3>
-    <ul class="tasks">
-      <li>
-        <span>One</span>
-        <button class="btn btn-success btn-mini">Start</button>
-      </li>
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-    </ul>
-  </div>
 </div>
+<script type="text/javascript">
+  window.tomato_length = 25;
+</script>
+<%= render 'templates' %>
 <% content_for :pagejs do %>
+<script type="text/javascript">
+  _.templateSettings = {
+    	evaluate:    /\{\{(.+?)\}\}/g,
+    	interpolate: /\{\{=(.+?)\}\}/g
+	};
+</script>
 <%= javascript_include_tag "home/index" %>
+<script type="text/javascript">
+  window.Goals.reset(<%= raw current_user.goals.all.to_json %>);
+</script>
+
 <% end %>

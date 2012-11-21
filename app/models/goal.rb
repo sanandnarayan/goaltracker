@@ -1,3 +1,5 @@
 class Goal < ActiveRecord::Base
-  attr_accessible :archived, :name, :position, :references
+  attr_protected
+  belongs_to :user
+  has_many :tasks
 end
