@@ -8,7 +8,7 @@
 </script>
 <script type="text/template" id="task_template">
     <div class="view">
-      <input class="toggle" type="checkbox">
+      <input class="toggle" type="checkbox" {{ if(done){ print("checked");} }}>
       <label>{{= name }}</label>
       <button class="destroy"></button>
       <button class="btn btn-success btn-mini">Start</button>

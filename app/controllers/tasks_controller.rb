@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new :name => params[:name], :goal_id => params[:goal_id], :position => params[:position]
+    @task = Task.new :name => params[:name], :goal_id => params[:goal_id], :position => params[:position], :archived => params[:archived], :done => params[:done]
 
     respond_to do |format|
       if @task.save
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-    to_update = {:name => params[:name], :position => params[:position]}
+    to_update = {:name => params[:name], :position => params[:position], :archived => params[:archived], :done => params[:done]}
 
     respond_to do |format|
       if @task.update_attributes to_update

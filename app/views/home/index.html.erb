@@ -41,7 +41,7 @@
 </script>
 <%= javascript_include_tag "home/index" %>
 <script type="text/javascript">
-  window.Goals.reset(<%= raw current_user.goals.all.to_json %>);
+  window.Goals.reset(<%= raw current_user.goals.where(archived: false).to_json %>);
 </script>
 
 <% end %>

@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = current_user.goals.all
+    @goals = current_user.goals.where(archived: false)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,7 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/tasks
   def tasks
-    @tasks = Goal.find(params[:goal_id]).tasks
+    @tasks = Goal.find(params[:goal_id]).tasks.where(archived: false)
     respond_to do |format|
       format.json { render json: @tasks }
     end

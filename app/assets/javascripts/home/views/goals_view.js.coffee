@@ -6,6 +6,7 @@ window.todo.views.GoalsView = Backbone.View.extend
     Goals.bind('add', @addGoal, this)
     Goals.bind('reset', @addAllGoals, this)
     window.todo.vent.bind 'task.added', @masonryReload
+    window.todo.vent.bind 'goal.archived', @masonryReload
 
     $(@el).masonry
       itemSelector: ".goal"

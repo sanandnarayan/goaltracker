@@ -13,7 +13,7 @@ views.AppView = Backbone.View.extend
   addOnEnter : (e) ->
     if e.charCode == 13
       entered_text = @newtodo.val()
-      if entered_text.indexOf '@' > 0
+      if entered_text.indexOf('@') > 0
         parts = entered_text.split('@')
         task_name  = parts[0]
         goal_name  = parts[1]
@@ -21,5 +21,5 @@ views.AppView = Backbone.View.extend
         goal_object.createTask task_name
         @newtodo.val('')
       else
+        console.log 'here'
         alert 'Enter a goal with @'
-

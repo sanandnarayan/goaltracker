@@ -8,7 +8,7 @@ window.todo.collections.Goals = Backbone.Collection.extend
   findOrCreate : (name)->
     goal = @where(name: name).pop()
     unless goal
-      @create name: name, {wait: true}
+      goal = @create name: name
     return goal
   comparator: (goal) ->
     goal.get('position')

@@ -3,7 +3,14 @@ window.todo.views.GoalView = Backbone.View.extend
   goalTemplate : _.template($('#goal_template').html())
   initialize:()->
     @model.tasks.on('add', @addTask, this)
+  events:
+    "click .destroy": "archive"
   
+  archive: ()->
+    @model.archive()
+    $(@el).remove()
+    window.todo.vent.trigger 'goal.archived'
+
   addTask : (model)->
     task_view = new window.todo.views.TaskView
       model: model
