@@ -12,11 +12,9 @@ window.todo.views.GoalsView = Backbone.View.extend
       isResizable: true
 
     $(@el).sortable
-      distance: 12
       forcePlaceholderSize: true
-      items: ".goal"
       placeholder: "card-sortable-placeholder goal"
-      tolerance: "pointer"
+      items: ".goal"
       start: (event, ui) ->
         ui.item.addClass("dragging").removeClass "goal"
         ui.item.parent().masonry "reload"
@@ -24,9 +22,10 @@ window.todo.views.GoalsView = Backbone.View.extend
       change: (event, ui) ->
         ui.item.parent().masonry "reload"
 
-      stop: (event, ui) ->
+      stop: (event, ui) =>
         ui.item.removeClass("dragging").addClass "goal"
         ui.item.parent().masonry "reload"
+        Goals.updatePosition $(@el).sortable('serialize')
 
   addAllGoals: (collection)->
     _.each collection.models, @addGoal

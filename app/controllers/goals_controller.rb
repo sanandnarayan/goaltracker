@@ -49,7 +49,7 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(params[:goal])
+    @goal = Goal.new :name => params[:name], :user => current_user, :position => params[:position], :archived => params[:archived]
 
     respond_to do |format|
       if @goal.save
@@ -66,9 +66,10 @@ class GoalsController < ApplicationController
   # PUT /goals/1.json
   def update
     @goal = Goal.find(params[:id])
+    to_update = { :name => params[:name], :position => params[:position], :archived => params[:archived] }
 
     respond_to do |format|
-      if @goal.update_attributes(params[:goal])
+      if @goal.update_attributes(to_update)
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
