@@ -1,0 +1,17 @@
+<h2><%= params[:from] %></h2>
+<h2><%= params[:to] %></h2>
+  <table class="table">
+    <tbody>
+<% @temp.each do |goal, duration| %>
+  <tr>
+    <td><%= goal %></td>
+    <td>
+      <% if(duration) %>
+        <%= (duration * 0.0166667).round 2 %> 
+      hours
+      <% end %> 
+    </td>
+  </tr>
+<% end %>
+    </tbody>
+  </table>
