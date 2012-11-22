@@ -11,6 +11,23 @@ class GoalsController < ApplicationController
     end
   end
 
+  def time
+    unless params[:from]
+      render "picktime"
+      return
+    end
+    from = params[:from]
+    to = params[:to]
+    @temp = {}
+    @goals =  current_user.goals.where(archived: false)
+
+    @goals.each do |goal|
+      tmp = goal.timelets.select('sum(duration) as duration').where('duration > 0').where('timelets.from' => Date.strptime(from, '%Y-%m-%d').beginning_of_day .. Date.strptime(to, '%Y-%m-%d').end_of_day)
+      @temp[goal.name] = tmp.first.duration
+    end
+    render "timespent"
+  end
+
   # GET /goals/1
   # GET /goals/1.json
   def show
