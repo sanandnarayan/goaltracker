@@ -41,7 +41,7 @@ class TomatoesController < ApplicationController
   # POST /timelets
   # POST /timelets.json
   def create
-    @tomato = Tomato.new :from => params[:from]
+    @tomato = Tomato.new :from => params[:from], :user_id => current_user.id
 
     respond_to do |format|
       if @tomato.save

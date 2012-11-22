@@ -56,3 +56,4 @@ window.todo.views.TomatoView = Backbone.View.extend
     @tomato_timer.stopwatch 'reset'
     @current_tomato = null
     @render()
+    window.todo.vent.trigger 'tomato.stopped'

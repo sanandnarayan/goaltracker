@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
   attr_protected
   # attr_accessible :title, :body
   has_many :goals
+  has_many :tomatoes
+
+  def today_tomatoes
+   self.tomatoes.where('tomatoes.from BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).where(completed: true).all
+    
+  end
 end
