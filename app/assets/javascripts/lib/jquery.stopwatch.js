@@ -63,7 +63,7 @@
                     // create counter
                     data.incrementer = incrementer(data.startTime, data.updateInterval);
                     data.tick_function = function() {
-                        var millis = data.incrementer();
+                        var millis = data.elapsed + data.updateInterval;
                         data.elapsed = millis;
                         data.target.trigger('tick.stopwatch', [millis]);
                         data.target.stopwatch('render');

@@ -19,6 +19,7 @@ window.todo.views.TomatoView = Backbone.View.extend
   # check if tomato is done and 
   tick : (event, millis) ->
     @update_bar millis
+    # @current_tomato.localstorage() if @current_tomato
     if millis >= @tomato_length * 60 * 1000
       @tomato_done()
 
@@ -57,3 +58,9 @@ window.todo.views.TomatoView = Backbone.View.extend
     @current_tomato = null
     @render()
     window.todo.vent.trigger 'tomato.stopped'
+
+  continueTimer:(currentTomato) ->
+    @current_tomato = new Tomato currentTomato
+    @tomato_timer.data('stopwatch').elapsed = (new Date() - new Date(currentTomato.from))
+    @tomato_timer.stopwatch 'start'
+    @render()

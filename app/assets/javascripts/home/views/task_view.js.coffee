@@ -3,7 +3,7 @@ window.todo.views.TaskView = Backbone.View.extend
   className: 'task'
   taskTemplate : _.template($('#task_template').html())
   initialize : ()->
-    console.log "TaskView has been initialized"
+    # console.log "TaskView has been initialized"
   events:
     "click .btn" : "task_begin"
     "click .destroy": "delete"
