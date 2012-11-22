@@ -54,6 +54,12 @@ class TimeletsController < ApplicationController
     end
   end
 
+  def add
+    @timelet = Timelet.new :from => params[:from], :task_id => params[:task_id], :to => params[:to]
+    @timelet.save()
+
+    render json: @timelet
+  end
   # PUT /timelets/1
   # PUT /timelets/1.json
   def update
