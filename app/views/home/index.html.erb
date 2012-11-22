@@ -7,19 +7,20 @@
 
 <div id="topline" class="row-fluid">
   <div class="span4">
-    <input id="newtodo" placeholder="Add task to goal" autofocus="">
+    <input id="newtodo" placeholder="task @goal" autofocus="">
   </div>
   <div id="timers" class="span6 offset2">
     <span class="span4" id="timelet">
       <span id="timer"></span>
-      <button id="stop" class="btn btn-mini btn-danger">stop</button>
-      
+      <div id="task_details"></div>
     </span>
     <span  class="span4" id="tomato">
-      <span id="tomato_timer"></span>
-      <button id="tomato_squash" class="btn btn-mini btn-danger">Squash</button>
-      <div class="progress">
-        <div class="bar" id="tomato_bar" style="width: 60%;"></div>
+      <div id="tomato_holder">
+        <span id="tomato_timer"></span>
+        <button id="tomato_squash" class="btn btn-mini btn-danger">Squash</button>
+        <div class="progress">
+          <div class="bar" id="tomato_bar" style="width: 60%;"></div>
+        </div>
       </div>
     </span>
     <span id="user_tomatoes" class="span4">2 tomatoes</span>

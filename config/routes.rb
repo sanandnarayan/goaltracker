@@ -4,6 +4,9 @@ Todo::Application.routes.draw do
 
   root :to => 'home#index'
   resources :tasks
+  resources :timelets
+  resources :tomatoes
+
   resources :goals do
     get 'tasks'
   end

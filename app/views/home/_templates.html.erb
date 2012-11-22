@@ -15,3 +15,9 @@
     </div>
     <input class="edit">
 </script>
+<script type="text/template" id="timer_template">
+  {{ if(task_name){  }}
+      <button id="stop" class="span4 btn btn-mini btn-danger">stop</button>
+      <div class="span8" id="timer_task_name">{{= task_name }}</div>
+  {{ } }}
+</script>

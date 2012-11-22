@@ -9,7 +9,9 @@ window.todo.views.TaskView = Backbone.View.extend
     "click .destroy": "delete"
     "click .toggle": "done"
   task_begin : ->
-    window.todo.vent.trigger 'task.begin'
+    window.todo.vent.trigger 'task.begin',
+      task_id: @model.get 'id'
+      task_name: @model.get 'name'
   render : ()->
     $(@el).html @taskTemplate @model.toJSON()
     $(@el).attr 'id', 'task_' + @model.get 'id'
