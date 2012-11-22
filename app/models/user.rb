@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :goals
   has_many :tomatoes
+  has_many :tasks, through: :goals
+  has_many :timelets, through: :tasks
 
   def today_tomatoes
    self.tomatoes.where('tomatoes.from BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).where(completed: true).all
