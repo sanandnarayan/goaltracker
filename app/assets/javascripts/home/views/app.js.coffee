@@ -8,6 +8,8 @@ views.AppView = Backbone.View.extend
     views.TimeletView = new views.TimeletView
     views.UserView    = new views.UserView
     views.GoalsView    = new views.GoalsView
+    @check_if_timers_were_running()
+
   events:
     "keypress #newtodo" : "addOnEnter"
   addOnEnter : (e) ->
@@ -23,3 +25,11 @@ views.AppView = Backbone.View.extend
       else
         console.log 'here'
         alert 'Enter a goal with @'
+  
+  check_if_timers_were_running: ()->
+    currentTimelet = JSON.parse(localStorage.getItem 'currentTimelet')
+    currentTomato  = JSON.parse(localStorage.getItem 'currentTomato')
+    if currentTimelet
+      views.TimeletView.continueTimer currentTimelet
+    if currentTomato
+      views.TomatoView.continueTimer currentTomato

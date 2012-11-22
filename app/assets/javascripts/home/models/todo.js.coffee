@@ -4,7 +4,7 @@ window.todo.models.Todo = Backbone.Model.extend
     archived : false
     done     : false
   initialize: ()->
-    console.log 'Todo initialized'
+    # console.log 'Todo initialized'
   delete:()->
     @save archived:true
   done:()->

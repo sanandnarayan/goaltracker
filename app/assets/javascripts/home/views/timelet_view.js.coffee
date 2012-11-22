@@ -7,10 +7,10 @@ window.todo.views.TimeletView = Backbone.View.extend
   # @current_timelet = model of current timer
   # @task_timer the stopwatch object
   initialize : ()->
-    console.log 'timelet initizlied'
     @current_timelet = null
     @task_timer = @$('#timer').stopwatch()
     window.todo.vent.on 'task.begin', @start_timer, this
+    @task_timer.bind 'tick.stopwatch', (e,millis) => @tick(e, millis)
     @render()
 
   # appends the html to the #task_details of the timer element  
@@ -45,7 +45,16 @@ window.todo.views.TimeletView = Backbone.View.extend
   start_timer: (options)->
     task_data  = @task_timer.data('stopwatch')
     @stop_timer() if task_data.active
-    @current_timelet = new Timelet (task_id: options.task_id, task_name: options.task_name)
+    @current_timelet = new Timelet options
     @current_timelet.start()
+    @task_timer.stopwatch 'start'
+    @render()
+
+  tick: (e, millis) ->
+    # @current_timelet.localstorage() if @current_timelet
+
+  continueTimer:(currentTimer) ->
+    @current_timelet = new Timelet currentTimer
+    @task_timer.data('stopwatch').elapsed = (new Date() - new Date(currentTimer.from))
     @task_timer.stopwatch 'start'
     @render()
