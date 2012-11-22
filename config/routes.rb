@@ -4,6 +4,7 @@ Todo::Application.routes.draw do
   get "calendar/data"
 
   match "user/tomatoes" => "home#tomatoes"
+  match "/timeletsadd" => "timelets#add"
   devise_for :users
 
   root :to => 'home#index'
