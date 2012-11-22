@@ -16,4 +16,6 @@
 //= require lib/jquery-ui-1.9.1.custom.js
 //= require lib/jquery.masonry.js
 //= require lib/jquery.stopwatch.js
+//= require lib/underscore
+//= require lib/backbone
 //= require bootstrap/bootstrap.js

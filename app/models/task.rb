@@ -1,3 +1,4 @@
 class Task < ActiveRecord::Base
-  attr_accessible :archived, :done, :name, :position, :references
+  attr_protected
+  belongs_to :goal
 end
