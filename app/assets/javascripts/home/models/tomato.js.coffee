@@ -6,8 +6,7 @@ window.todo.models.Tomato = Backbone.Model.extend
     @save to: new Date()
     localStorage.removeItem 'currentTomato'
   start:()->
-    @save from: new Date()
-    @localstorage()
+    @save(from: new Date(), {success: ()=>@localstorage()})
   localstorage:()->
     localStorage.setItem 'currentTomato', JSON.stringify @attributes
 

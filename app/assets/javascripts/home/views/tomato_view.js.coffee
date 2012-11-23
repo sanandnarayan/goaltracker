@@ -39,8 +39,8 @@ window.todo.views.TomatoView = Backbone.View.extend
 
   update_bar : (millis)->
     millis = millis || 0
-    elapsed_minutes = millis/1000
-    percentage = elapsed_minutes/tomato_length * 100
+    elapsed_seconds = millis/1000
+    percentage = elapsed_seconds/(@tomato_length*60) * 100
     width = Math.floor(percentage)
     @bar.width width
 
