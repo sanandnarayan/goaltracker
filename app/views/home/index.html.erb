@@ -1,4 +1,6 @@
 <% if user_signed_in? %>
+  <a target="blank" href="timelets/new">Add</a>
+  <a target="blank" href="calendar/events">Calendar</a>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% end %>
 <div class="page-header">
