@@ -30,5 +30,5 @@ namespace :deploy do
 end
 
 after 'deploy:update_code' do
-  run "cd #{release_path}; RAILS_ENV=production rake db:migrate"
+  run "cd #{release_path}; RAILS_ENV=development rake db:migrate"
 end
